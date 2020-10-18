@@ -131,17 +131,18 @@
                             </div>
                         </div>
 
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customCheck1">
-                            <label class="custom-control-label" for="customCheck1">
-                                Some web browsers may fail to render the image in a new tab. Tick
-                                this box to have the
-                                image available as a download instead.
-                            </label>
+                        <div>
+                            <p style="margin-bottom: 10px;">
+                                Some web browsers may fail to render the image in a new tab. Alternatively, a download
+                                link will also appear that you can press.
+                            </p>
                         </div>
-                        <a id="download" href="" hidden>Click here to download the image instead</a>
+                        <a style="margin-bottom: 10px;" id="download" href="" hidden>
+                            Click here to download the image instead
+                        </a>
                     </fieldset>
-                    <button type="submit" id="genrateCover" class="btn btn-primary">Submit</button>
+                    <button style="margin-top: 10px;" type="submit" id="genrateCover"
+                        class="btn btn-primary">Submit</button>
                 </form>
                 <canvas id="myCanvas" width="200" height="200" hidden></canvas>
             </div>
@@ -225,15 +226,14 @@
             var downloadButton = document.getElementById("download");
             downloadButton.hidden = true
             let checkbox = document.getElementById("customCheck1");
-            if (checkbox.checked) {
-                var downloadURL = dataUrl.replace("image/png", "image/octet-stream");
-                downloadButton.setAttribute('download', 'Trello cover image.png')
-                downloadButton.setAttribute("href", downloadURL);
-                downloadButton.hidden = false;
 
-            } else {
-                const win = window.open(dataUrl, '_blank')
-            }
+            var downloadURL = dataUrl.replace("image/png", "image/octet-stream");
+            downloadButton.setAttribute('download', 'Trello cover image.png')
+            downloadButton.setAttribute("href", downloadURL);
+            downloadButton.hidden = false;
+
+            const win = window.open(dataUrl, '_blank')
+
 
             return false
 
